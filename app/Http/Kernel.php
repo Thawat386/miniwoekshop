@@ -45,6 +45,7 @@ class Kernel extends HttpKernel
         ],
     ];
 
+   
     /**
      * The application's route middleware.
      *
@@ -62,5 +63,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'auth' => 'App\Http\Middleware\Authenticate',
+        'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+        'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
+        'admin' => 'App\Http\Middleware\Admin', // this line right here
     ];
 }

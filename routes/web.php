@@ -20,4 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('contact', 'contactcontroller');
+Route::resource('contact', 'contactcontroller')->middleware('auth');
+
+// Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+//     return "this page requires that you be logged in and an Admin";
+// }]);

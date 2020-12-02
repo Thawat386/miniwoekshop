@@ -55,15 +55,14 @@
                                 </li>
                             @endif
                         @else
+                        
                             @role('admin')
-                                    <li><a href="#" class="nav-link">Admin Panel</a></li>
+                                    <li><a href="contact" class="nav-link">Admin Panel</a></li>
                             @endrole
-                            @can('addpost')
-                                    <li><a href="#" class="nav-link">เพิ่มบทความ</a></li>
-                            @endcan
-                            @can('readpost')
-                                    <li><a href="#" class="nav-link">ดูบทความทั้งหมด</a></li>
-                            @endcan
+                            @role('manager')
+                                    <li><a href="contact" class="nav-link">Manager Panel</a></li>
+                            @endrole
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
