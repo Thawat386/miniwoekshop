@@ -24,11 +24,14 @@ class HomeController extends Controller
     public function index()
     {
         
-
+        auth()->user()->assignRole(['manager']);
         if(auth()->user()->hasRole("admin")){
-                $user=auth()->user();
+            // $user=auth()->user();
+            // $user->syncPermissions(['manageuser','addpost','editpost','deletepost','readpost']);
                 return view('admin');
         }else{
+        //     $user=auth()->user();
+        // $user->syncPermissions(['addpost','editpost','deletepost','readpost']);
                 return view('home');
         }
     }
