@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h2 align="center">ข้อมูลติดต่อลูกค้า</h2>
+    <h2 align="center">ข้อมูลลูกค้า</h2>
     <div align="right">
     @role('admin')
         <a href="/contact/create" class="btn btn-primary my-2">เพิ่มข้อมูล</a></div>
@@ -38,7 +38,7 @@
             @endrole
         </tbody>
         @role('manager')
-        <a href="/contact/create" class="btn btn-primary my-2">เพิ่มข้อมูล</a></div>
+        <!-- <a href="/contact/create" class="btn btn-primary my-2">เพิ่มข้อมูล</a></div> -->
     <table class="table table-striped">
         <thead>
             <tr>
@@ -71,7 +71,28 @@
             @endforeach
             @endrole
     </table>
-   
+    @role('staff')
+        <!-- <a href="/contact/create" class="btn btn-primary my-2">เพิ่มข้อมูล</a></div> -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">รหัส</th>
+                <th scope="col">ชื่อผู้ใช้</th>
+                <th scope="col">อีเมล</th>
+                <th scope="col">ชื่อ-นามสกุล</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <th scope="row">{{ Auth::user()->id }}</th>
+                <td>{{ Auth::user()->username }}</td>
+                <td>{{ Auth::user()->email }}</td>
+                <td>{{ Auth::user()->name }}</td>
+            </tr>
+            
+            @endrole
+    </table>
         </tbody>
 
 </div>

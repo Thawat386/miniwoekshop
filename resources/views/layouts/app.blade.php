@@ -62,6 +62,9 @@
                             @role('manager')
                                     <li><a href="contact" class="nav-link">Manager Panel</a></li>
                             @endrole
+                            @role('staff')
+                                    <li><a href="contact" class="nav-link">User Panel</a></li>
+                            @endrole
                         
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
